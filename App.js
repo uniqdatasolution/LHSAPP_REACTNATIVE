@@ -1,6 +1,6 @@
 
 import React, { useEffect,useState } from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, Dimensions, Platform } from 'react-native';
 import { 
   NavigationContainer, 
   DefaultTheme as NavigationDefaultTheme,
@@ -18,7 +18,12 @@ import {
 // import AuthNavigation from './SRC/Navigation/AuthNavigation'
 import AuthNavigation from './Navigation/AuthNavigation'
 
+import EStyleSheet from 'react-native-extended-stylesheet';
 
+const entireScreenWidth = Dimensions.get('window').width;
+EStyleSheet.build({
+  $rem: entireScreenWidth / (Platform.OS === 'ios' ? 380 : 450),
+});
 
 const App = ({navigation}) => {
   
